@@ -19,9 +19,8 @@ public class Player {
 	private int assists;
 	private int points;
 
-	public Player(long id, String pName, int pNum, String position, int goals, int assists, int points) {
+	public Player(String pName, int pNum, String position, int goals, int assists, int points) {
 		super();
-		this.id = id;
 		this.pName = pName;
 		this.pNum = pNum;
 		this.position = position;
