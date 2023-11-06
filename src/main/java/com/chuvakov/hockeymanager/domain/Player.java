@@ -19,6 +19,16 @@ public class Player {
 	private int assists;
 	private int points;
 
+	public Player(String pName, int pNum, String position, int goals, int assists) {
+		super();
+		this.pName = pName;
+		this.pNum = pNum;
+		this.position = position;
+		this.goals = goals;
+		this.assists = assists;
+		this.points = calculatePoints(goals, assists);
+	}
+
 	public Player(String pName, int pNum, String position, int goals, int assists, int points) {
 		super();
 		this.pName = pName;
@@ -86,6 +96,11 @@ public class Player {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	// Calculate points
+	private int calculatePoints(int goals, int assists) {
+		return points = goals + assists;
 	}
 
 	@Override

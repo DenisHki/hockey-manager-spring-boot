@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<title>Hockey Manager</title>
+	<title>New Player Register</title>
 </head>
 
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand text-white" href="#">Hockey Manager</a>
@@ -22,15 +20,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+					<li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="/">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" href="available_books">Events</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" href="players">Roster</a>
-					</li>
+					<li class="nav-item"><a class="nav-link text-white" href="/events">Events</a></li>
+					<li class="nav-item"><a class="nav-link text-white" href="/players">Roster</a></li>
 				</ul>
 				<div>
 					<a class="nav-link text-white" href="log_out">Log out</a>
@@ -39,22 +32,28 @@
 		</div>
 	</nav>
 
-	<div class="container text-center my-5">
-		<h1>Welcome to the Helsinki Ice Hawks Hockey Management App!</h1>
-		<h6>My app is designed to make your hockey journey exciting and seamless. Whether you're the team's coach,
-			manager, or the most dedicated fan, this app is your ultimate companion. Here's what you can expect:
+	<div class="container my-5 p-5" style="border:1px solid black;">
+		<h4 class="text-center">New Player Register</h4>
+		<form class="col-md-4 offset-md-4" th:action="@{/save}" method="post">
+			<div class="mb-3">
+				<label for="pName" class="form-label">Player Name</label>
+				<input type="text" class="form-control" name="pName">
+			</div>
 
-			Get access to the world of the Helsinki Ice Hawks. Stay up to date with the latest team news, announcements,
-			and game results.
+			<div class="mb-3">
+				<label for="pNum" class="form-label">Player Number</label>
+				<input type="number" class="form-control" name="pNum">
+			</div>
 
-			Discover the comprehensive schedule, including games, practices, and special events. Get all the details you
-			need, and be the first to know about any changes or updates.
-
-			Explore detailed player profiles featuring their names, positions, and an array of statistics of goals and
-			assists. Dive into the world of your favorite players, and keep track of their outstanding contributions to
-			the team.
-		</h6>
-		<img src="/images/logo.png" width="400px" />
+			<div class="mb-3">
+				<label for="position" class="form-label">Position</label>
+				<input type="text" class="form-control" name="position">
+			</div>
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/players" class="btn btn-secondary">Back</a>
+			</div>
+		</form>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -66,7 +65,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 		crossorigin="anonymous"></script>
-
 </body>
 
 </html>
