@@ -11,7 +11,7 @@ import com.chuvakov.hockeymanager.domain.AppUser;
 import com.chuvakov.hockeymanager.domain.AppUserRepository;
 import com.chuvakov.hockeymanager.domain.Player;
 import com.chuvakov.hockeymanager.domain.PlayerRepository;
-import com.chuvakov.hockeymanager.domain.Position;
+//import com.chuvakov.hockeymanager.domain.Position;
 import com.chuvakov.hockeymanager.domain.PositionRepository;
 
 @SpringBootApplication
@@ -28,6 +28,7 @@ public class HockeyApplication {
 		return (args) -> {
 
 			/*
+			log.info("Save some players);
 			repository.save(new Player("Denis Chuvakov", 1, 10, 20, 30, posrepository.findByName("Forwards").get(0)));
 			repository.save(new Player("Alexei Ivanov", 2, 15, 25, 40, posrepository.findByName("Defensemen").get(0)));
 			repository.save(new Player("John Smith", 3, 8, 12, 20, posrepository.findByName("Forwards").get(0)));
@@ -49,14 +50,10 @@ public class HockeyApplication {
 			repository.save(new Player("Kaspars Eglitis", 19, 7, 12, 19, posrepository.findByName("Defensemen").get(0)));
 			repository.save(new Player("Edgars Dzirkalis", 20, 1, 3, 4, posrepository.findByName("Goalies").get(0)));
 			
-			
-			
+			log.info("Save positions: "Forwards", "Defensemen", "Goalies" );
 			posrepository.save(new Position("Forwards"));
 			posrepository.save(new Position("Defensemen"));
-			posrepository.save(new Position("Goalies"));
-		
-			
-			
+			posrepository.save(new Position("Goalies"));		
 			
 			log.info("Create users: admin/admin user/user");
 			AppUser user1 = new AppUser("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
@@ -66,7 +63,6 @@ public class HockeyApplication {
 			urepository.save(user1);
 			urepository.save(user2);
 			urepository.save(user3);
-			
 		*/
 			
 			log.info("fetch all players");

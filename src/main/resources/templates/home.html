@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <title>Hockey manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #001848;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #ee7a1d;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #teamLogo {
+            width: 250px;
+            height: 250px;
+            border-radius: 75%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #001848;
+        }
+
+        .welcome-message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#" style="color: #ffffff;">Hockey manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link" th:href="@{/}" style="color: #ffffff;" href="/">Home</a>
+                <a class="nav-link" th:href="@{/playerlist}" style="color: #ffffff;" href="/playerlist">Player List</a>
+                <a class="nav-link" th:href="@{/topplayers}" style="color: #ffffff;" href="/playerlist">Top players</a>
+            </div>
+        </div>
+        <form class="form-inline" th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+        </form>
+    </nav>
+
+    <div class="container">
+		<div class="welcome-message d-flex align-items-center">
+            <span class="mr-2">Hi <b sec:authentication="name"></b>, your role is <b
+                    sec:authentication="principal.authorities"></b></span>
+        </div>
+        <img id="teamLogo" th:src="@{/images/logo.png}" alt="Team Logo" />
+        <h2>Welcome to the Helsinki Ice Hawks Hockey Manager! Take control of your hockey team like never before. Add,
+            update, and remove players from your roster with ease. Dive into detailed player statistics to track their
+            performance. Experience the excitement of managing the Helsinki Ice Hawks and lead them to victory!</h2>
+        
+    </div>
+
+</body>
+
+</html>

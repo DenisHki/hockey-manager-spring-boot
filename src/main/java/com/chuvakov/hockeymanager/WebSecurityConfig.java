@@ -29,7 +29,7 @@ public class WebSecurityConfig {
 			.authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
 				.requestMatchers(mvcMatcherBuilder.pattern("/css/**"), mvcMatcherBuilder.pattern("/signup"), mvcMatcherBuilder.pattern("/saveuser")).permitAll()
 				.anyRequest().authenticated())
-			.formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/playerlist", true).permitAll())
+			.formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home", true).permitAll())
 			.logout(logout -> logout.permitAll()).build();
 	}
 
