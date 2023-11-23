@@ -7,14 +7,14 @@ The Hockey Manager Spring Boot project is a web application that enables users t
 - Spring Boot
 - Thymeleaf (template engine)
 - Spring Security
-- MySQL (or any other database of your choice)
+- MySQL 
 - Bootstrap (CSS framework)
 
 ## Project Structure
 The project is organized into several packages:
 
-- `com.chuvakov.hockeymanager`: Contains the main configuration class `WebSecurityConfig`.
-- `com.chuvakov.hockeymanager.domain`: Includes domain classes such as `AppUser`, `Player`, `Position`, and repositories for database interactions.
+- `com.chuvakov.hockeymanager`: Contains the main configuration class `WebSecurityConfig` and `HockeyApplication`.
+- `com.chuvakov.hockeymanager.domain`: Includes domain classes such as `AppUser`, `Player`, `Position`, `SignupForm.java` and repositories for database interactions.
 - `com.chuvakov.hockeymanager.web`: Contains controllers (`PlayerController` and `UserController`) responsible for handling HTTP requests.
 
 ## How to Use
@@ -28,9 +28,30 @@ The project is organized into several packages:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/DenisHki/hockey-manager-spring-boot.git
-   cd hockey-manager-spring-boot
+   - git clone https://github.com/DenisHki/hockey-manager-spring-boot.git
+   - cd hockey-manager-spring-boot
+   
+2. Set up your database:
 
+   - Create a MySQL database.
+   - Update the application.properties file in src/main/resources with your database configuration.
+     
+3. Run the application:
+
+   - Open the project in your IDE.
+   - Run the HockeyManagerApplication class.
+
+4. Access the application:
+
+   - Open a web browser and go to http://localhost:8080.
+
+5. Explore the features:
+   
+   - Sign up for a user account and log in to access secure pages.
+   - Navigate through different pages, such as the home page, player list, and top players.
+   - Add, edit, or delete players from the roster.
+   
+## Screenshots
 ![Project Logo](https://github.com/DenisHki/hockey-manager-spring-boot/blob/main/images_hm/signin.png) 
 
 ![Project Logo](https://github.com/DenisHki/hockey-manager-spring-boot/blob/main/images_hm/signup.png)
@@ -45,6 +66,10 @@ The project is organized into several packages:
 
 ![Project Logo](https://github.com/DenisHki/hockey-manager-spring-boot/blob/main/images_hm/statistics.png)
 
+## Contributors
 
+   - DenisHki (@DenisHki)
 
+## License
 
+This project is licensed under the MIT License - see the LICENSE file for details.
