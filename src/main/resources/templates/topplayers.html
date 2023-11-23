@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+	<title>Hockey manager</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<style>
+		body {
+			background-color: #f8f9fa;
+			font-family: Arial, sans-serif;
+		}
+
+		.navbar {
+			background-color: #001848;
+		}
+
+		.navbar-brand,
+		.navbar-nav .nav-link {
+			color: #ffffff;
+			transition: background-color 0.3s;
+		}
+
+		.navbar-nav .nav-link:hover {
+			background-color: #ee7a1d;
+		}
+
+		.container {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		#teamLogo {
+			width: 250px;
+			height: 250px;
+			border-radius: 75%;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			color: #001848;
+			margin-top: 20px;
+		}
+
+		.lead {
+			font-size: 1.25rem;
+			display: inline-block;
+			margin-right: 20px;
+			/* Adjust the spacing between players */
+		}
+
+		.no-players {
+			color: #6c757d;
+			font-size: 1.5rem;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#" style="color: #ffffff;">Hockey manager</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="navbar-nav">
+				<a class="nav-link" th:href="@{/}" style="color: #ffffff;" href="/">Home</a>
+				<a class="nav-link" th:href="@{/playerlist}" style="color: #ffffff;" href="/playerlist">Player
+					List</a>
+				<a class="nav-link" th:href="@{/topplayers}" style="color: #ffffff;" href="/playerlist">Top
+					players</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<h2>Statistics</h2>
+		<div th:if="${topPlayerByGoals != null or topPlayerByAssists != null or topPlayerByPoints != null}"
+			class="lead">
+			<p th:if="${topPlayerByGoals}"
+				th:text="'Scoring Leader: ' + ${topPlayerByGoals.name} + ' - ' + ${topPlayerByGoals.goals} + ' goals'">
+			</p>
+			<p th:if="${topPlayerByAssists}"
+				th:text="'Assists Leader: ' + ${topPlayerByAssists.name} + ' - ' + ${topPlayerByAssists.assists} + ' assists'">
+			</p>
+			<p th:if="${topPlayerByPoints}"
+				th:text="'Points Leader: ' + ${topPlayerByPoints.name} + ' - ' + ${topPlayerByPoints.points} + ' points'">
+			</p>
+		</div>
+
+
+		<div th:if="${topPlayerByGoals == null && topPlayerByAssists == null && topPlayerByPoints == null}"
+			class="no-players">
+			<p>No top players found.</p>
+		</div>
+	</div>
+</body>
+
+</html>

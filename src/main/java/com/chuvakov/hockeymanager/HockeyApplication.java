@@ -11,7 +11,7 @@ import com.chuvakov.hockeymanager.domain.AppUser;
 import com.chuvakov.hockeymanager.domain.AppUserRepository;
 import com.chuvakov.hockeymanager.domain.Player;
 import com.chuvakov.hockeymanager.domain.PlayerRepository;
-import com.chuvakov.hockeymanager.domain.Position;
+//import com.chuvakov.hockeymanager.domain.Position;
 import com.chuvakov.hockeymanager.domain.PositionRepository;
 
 @SpringBootApplication

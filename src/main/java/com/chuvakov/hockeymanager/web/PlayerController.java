@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +18,6 @@ import com.chuvakov.hockeymanager.domain.Player;
 import com.chuvakov.hockeymanager.domain.PlayerRepository;
 import com.chuvakov.hockeymanager.domain.PositionRepository;
 
-
-
-
 @Controller
 public class PlayerController {
 
@@ -29,20 +27,26 @@ public class PlayerController {
 	@Autowired
 	private PositionRepository posrepository;
 
+	// Go to the homepage
+	@RequestMapping(value = { "/", "/home" })
+	public String home(Model model) {
+		return "home";
+	}
+
 	// Get all players or search players by name
-    @RequestMapping(value = { "/", "/playerlist" })
-    public String playerlist(Model model, @RequestParam(required = false) String search) {
-        List<Player> players;
+	@RequestMapping(value = "/playerlist")
+	public String playerlist(Model model, @RequestParam(required = false) String search) {
+		List<Player> players;
 
-        if (search != null && !search.isEmpty()) {
-            players = repository.findByName(search);
-        } else {
-            players = (List<Player>) repository.findAll();
-        }
+		if (search != null && !search.isEmpty()) {
+			players = repository.findByName(search);
+		} else {
+			players = (List<Player>) repository.findAll();
+		}
 
-        model.addAttribute("players", players);
-        return "playerlist";
-    }
+		model.addAttribute("players", players);
+		return "playerlist";
+	}
 
 	// RESTful service to get all players
 	@RequestMapping(value = "/players", method = RequestMethod.GET)
@@ -88,9 +92,32 @@ public class PlayerController {
 		model.addAttribute("position", posrepository.findAll());
 		return "editplayer";
 	}
-	
-	@RequestMapping(value="/login")
-    public String login() {	
-        return "login";
-    }	
+
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+
+	@RequestMapping(value = "/topplayers")
+	public String topPlayers(Model model) {
+		// Fetch the player with the most goals
+		List<Player> topPlayersByGoals = repository.findTopPlayerByGoals(PageRequest.of(0, 1));
+		if (!topPlayersByGoals.isEmpty()) {
+			model.addAttribute("topPlayerByGoals", topPlayersByGoals.get(0));
+		}
+
+		// Fetch the player with the most assists
+		List<Player> topPlayersByAssists = repository.findTopPlayerByAssists(PageRequest.of(0, 1));
+		if (!topPlayersByAssists.isEmpty()) {
+			model.addAttribute("topPlayerByAssists", topPlayersByAssists.get(0));
+		}
+
+		// Fetch the player with the most points
+		List<Player> topPlayersByPoints = repository.findTopPlayerByPoints(PageRequest.of(0, 1));
+		if (!topPlayersByPoints.isEmpty()) {
+			model.addAttribute("topPlayerByPoints", topPlayersByPoints.get(0));
+		}
+
+		return "topplayers";
+	}
 }
