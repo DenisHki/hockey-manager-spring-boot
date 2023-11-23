@@ -17,10 +17,10 @@ public interface PlayerRepository extends CrudRepository<Player, Long> {
 
 	@Query("SELECT p FROM Player p ORDER BY p.points DESC")
 	List<Player> findTopPlayerByPoints(Pageable pageable);
-<<<<<<< HEAD
+
 
 	List<Player> findByNumber(int number);
 }
-=======
-}
->>>>>>> c02829118405b3826814b24c1073f2e7eee3be49
+
+
+

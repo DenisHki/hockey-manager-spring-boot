@@ -120,8 +120,5 @@ public class PlayerController {
 
 		return "topplayers";
 	}
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> c02829118405b3826814b24c1073f2e7eee3be49
