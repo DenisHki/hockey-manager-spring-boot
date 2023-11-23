@@ -6,6 +6,7 @@ The Hockey Manager Spring Boot project is a web application that enables users t
 ## Technologies Used
 - Spring Boot
 - Thymeleaf (template engine)
+- Spring Boot: REST
 - Spring Security
 - MySQL 
 - Bootstrap (CSS framework)
